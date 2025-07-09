@@ -6,8 +6,7 @@ import pandas as pd
 import plotly.graph_objects as go
 from dash import Dash, html, dcc, dash_table, Input, Output
 import dash_bootstrap_components as dbc
-
-router = APIRouter()
+import os
 
 # Ticker mapping
 TICKER_MAP = {
@@ -32,7 +31,7 @@ end_date = datetime.datetime.today().strftime('%Y-%m-%d')
 # === Step 1: Download and preprocess data ===
 prices = yf.download(tickers, start="2003-01-01", end=end_date, auto_adjust=True)["Close"]
 yearly_prices = prices.resample('YE').last()
-annual_returns = yearly_prices.pct_change().dropna(how='all')
+annual_returns = yearly_prices.pct_change(fill_method=None).dropna(how='all')
 
 # === Step 2: Portfolio Simulation ===
 initial_value = 10000
