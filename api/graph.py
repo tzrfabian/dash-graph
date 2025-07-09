@@ -6,7 +6,6 @@ import pandas as pd
 import plotly.graph_objects as go
 from dash import Dash, html, dcc, dash_table, Input, Output
 import dash_bootstrap_components as dbc
-import os
 
 # Ticker mapping
 TICKER_MAP = {
