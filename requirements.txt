@@ -1,0 +1,9 @@
+datetime
+yfinance
+pandas
+plotly
+dash
+dash-bootstrap-components
+fastapi
+uvicorn
+starlette
